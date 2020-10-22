@@ -10,6 +10,7 @@ interface Request {
 }
 
 class CreateAppointmentService {
+  // eslint-disable-next-line class-methods-use-this
   public async execute({ date, provider }: Request): Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository);
 
