@@ -2,10 +2,10 @@ import { getRepository } from 'typeorm';
 import path from 'path';
 import fs from 'fs';
 
-import uploadConfig from '../config/upload';
+import uploadConfig from '@config/upload';
 
-import AppError from '../errors/AppError';
-import User from '../models/User';
+import AppError from '@shared/errors/AppError';
+import User from '@modules/users/infra/typeorm/entities/User';
 
 interface Request {
   user_id: string;
@@ -33,11 +33,11 @@ class UpdateUserAvatarService {
       }
     }
 
-   user.avatar = avatarFilename;
-   
-   await usersRepository.save(user);
+    user.avatar = avatarFilename;
 
-   return user;
+    await usersRepository.save(user);
+
+    return user;
   }
 }
 export default UpdateUserAvatarService;
