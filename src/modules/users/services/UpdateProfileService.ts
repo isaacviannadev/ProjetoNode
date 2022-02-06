@@ -14,7 +14,7 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateProfile {
+class UpdateProfileService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
@@ -65,4 +65,4 @@ class UpdateProfile {
     return this.usersRepository.save(user);
   }
 }
-export default UpdateProfile;
+export default UpdateProfileService;
